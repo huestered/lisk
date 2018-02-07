@@ -17,7 +17,16 @@
 var __private = {};
 
 /**
+ * Description of the module.
+ *
+ * @module
+ * @see Parent: {@link helpers}
+ * @todo Add description of the module
+ */
+
+/**
  * A module to reference the scope of the application between swagger pipeline.
+ *
  * @param {Object} scope - Application scope.
  */
 function bind(scope) {
@@ -30,7 +39,9 @@ function bind(scope) {
 
 /**
  * Get cache module.
- * @return {Object}
+ *
+ * @returns {Object}
+ * @todo Add description for the returns-tag
  */
 function getCache() {
 	return __private.cache;
@@ -38,7 +49,9 @@ function getCache() {
 
 /**
  * Get system logger.
- * @return {Object}
+ *
+ * @returns {Object}
+ * @todo Add description for the returns-tag
  */
 function getLogger() {
 	return __private.logger;
@@ -46,7 +59,9 @@ function getLogger() {
 
 /**
  * Get system config.
- * @return {Object}
+ *
+ * @returns {Object}
+ * @todo Add description for the returns-tag
  */
 function getConfig() {
 	return __private.config;
