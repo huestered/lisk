@@ -16,13 +16,17 @@
 module.exports = Field;
 
 /**
+ * Description of the function.
  *
- * @param {Validator} validator Validator instance
- * @param {string} path Validation field path
- * @param {*} value Validated value
- * @param {Object} rules Set of rules
- * @param {*} thisArg Value used as this reference within rule callback calls.
- * @constructor
+ * @class
+ * @memberof helpers.validator
+ * @param {Validator} validator - Validator instance
+ * @param {string} path - Validation field path
+ * @param {*} value - Validated value
+ * @param {Object} rules - Set of rules
+ * @param {*} thisArg Value used as this reference within rule callback calls
+ * @see Parent: {@link helpers.validator}
+ * @todo Add description of the class
  */
 function Field(validator, path, value, rules, thisArg) {
 	this.isAsync = false;
@@ -39,11 +43,13 @@ function Field(validator, path, value, rules, thisArg) {
 
 /**
  * Create child field.
- * @param {string} path Validation field path
- * @param {*} value Validated value
- * @param {Object} rules Set of rules
- * @param {*} thisArg Value used as this reference within rule callback calls.
+ *
+ * @param {string} path - Validation field path
+ * @param {*} value - Validated value
+ * @param {Object} rules - Set of rules
+ * @param {*} thisArg Value used as this reference within rule callback calls
  * @returns {Validator.Field}
+ * @todo Add description of the return value
  */
 Field.prototype.child = function(path, value, rules, thisArg) {
 	var field = this.validator.createField(
@@ -57,8 +63,10 @@ Field.prototype.child = function(path, value, rules, thisArg) {
 };
 
 /**
- * Validate field value and trigger callback on result
+ * Validate field value and trigger callback on result.
+ *
  * @param callback
+ * @todo Add description of the param
  */
 Field.prototype.validate = function(callback) {
 	var stack = this._stack;
@@ -150,7 +158,8 @@ Field.prototype.validate = function(callback) {
 
 /**
  * End validation. Drop validation stack.
- * @param {Error} err Report and error if passed. Optional
+ *
+ * @param {Error} err - Report and error if passed. Optional
  */
 Field.prototype.end = function(err) {
 	this._stack = [];
@@ -169,7 +178,9 @@ Field.prototype.end = function(err) {
 
 /**
  * Create validation async. Callback get done function to emit validation end.
+ *
  * @param {function(done:function)} callback
+ * @todo Add description of the param
  */
 Field.prototype.async = function(callback) {
 	this.isAsync = true;
@@ -197,8 +208,9 @@ Field.prototype.async = function(callback) {
 };
 
 /**
- * Report an invalid validation result
- * @param {{}} report Validation report object
+ * Report an invalid validation result.
+ *
+ * @param {{}} report - Validation report object
  */
 Field.prototype.issue = function(report) {
 	this.hasError = true;
