@@ -19,12 +19,49 @@ var failureCodes = require('../api/ws/rpc/failure_codes.js');
 var swaggerHelper = require('../helpers/swagger');
 var Peer = require('../logic/peer.js');
 
+/**
+ * Description of the module.
+ *
+ * @module
+ * @see Parent: {@link helpers}
+ * @requires lodash
+ * @requires url
+ * @requires api/ws/rpc/failure_codes
+ * @requires helpers/swagger
+ * @requires logic/peer
+ * @property {Object} middleware
+ * @property {function} extractHeaders
+ * @todo Add description of the module and its properties
+ */
+
 var definitions = swaggerHelper.getSwaggerSpec().definitions;
 
 var z_schema = swaggerHelper.getValidator();
 
+/**
+ * Middleware functions to add cors, log errors and conections, send status
+ * and setup router.
+ *
+ * @namespace middleware
+ * @see Parent: {@link helpers.ws_api}
+ * @memeberof module:helpers/ws_api
+ */
 var middleware = {
+	/**
+	 * Description of the function.
+	 *
+	 * @param {Object} system - Description of the param
+	 * @todo Add descriptions of the function and its parameters
+	 * @todo Add @returns-tag
+	 */
 	Handshake: function(system) {
+		/**
+		 * Description of the function.
+		 *
+		 * @param {Object} system - Description of the param
+		 * @todo Add descriptions of the function and its parameters
+		 * @todo Add @returns-tag
+		 */
 		return function(headers, cb) {
 			z_schema.validate(headers, definitions.WSPeerHeaders, error => {
 				if (error) {
@@ -83,6 +120,13 @@ var middleware = {
 	},
 };
 
+/**
+ * Description of the function.
+ *
+ * @param {Object} request - Description of the param
+ * @todo Add descriptions of the function and its parameters
+ * @todo Add @returns-tag
+ */
 var extractHeaders = function(request) {
 	var headers = _.get(url.parse(request.url, true), 'query', null);
 	headers.ip = request.remoteAddress.split(':').pop();
