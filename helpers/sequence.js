@@ -52,6 +52,7 @@ function Sequence(config) {
  *
  * @param {function} cb - Description of the param
  * @returns {setImmediateCallback} With cb or task.done
+ * @todo Add descriptions of the params
  */
 Sequence.prototype.__tick = function(cb) {
 	var task = this.sequence.shift();
@@ -78,6 +79,7 @@ Sequence.prototype.__tick = function(cb) {
  * @param {function} worker - Description of the param
  * @param {Array} args - Description of the param
  * @param {function} done - Description of the param
+ * @todo Add descriptions of the params
  */
 Sequence.prototype.add = function(worker, args, done) {
 	if (!done && args && typeof args === 'function') {

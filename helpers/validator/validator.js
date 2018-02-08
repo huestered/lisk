@@ -27,7 +27,7 @@ exports.Field = Field;
  *
  * @class
  * @memberof helpers.validator
- * @param {Object} options
+ * @param {Object} options - Description of the param
  * @see Parent: {@link helpers.validator}
  * @todo Add description of the param
  */
@@ -82,8 +82,9 @@ Validator.prototype.reporter = null;
 /**
  * Check whether rule exists.
  *
- * @param {string} name
+ * @param {string} name - Description of the param
  * @returns {boolean}
+ * @todo Add description of the param
  */
 Validator.prototype.hasRule = function(name) {
 	return name in this.rules;
@@ -92,8 +93,9 @@ Validator.prototype.hasRule = function(name) {
 /**
  * Get rule descriptor.
  *
- * @param {string} name
+ * @param {string} name - Description of the param
  * @returns {*}
+ * @todo Add description of the param
  */
 Validator.prototype.getRule = function(name) {
 	if (name in this.rules === false) {
@@ -105,7 +107,7 @@ Validator.prototype.getRule = function(name) {
 /**
  * Validate values with specified rules set.
  *
- * @param {*} value
+ * @param {*} value - Description of the param
  * @param {Object} rules - Set of rules
  * @param {function} callback - Result callback (err:Error,report:Array,output:*)=
  * @returns {Object} report
@@ -185,6 +187,7 @@ Validator.prototype.Field = Field;
  * @param {Object} rules - Rule set
  * @param {*=} thisArg - This reference for Validation methods. Optional
  * @returns {Validator.Field}
+ * @todo Add description for the returns tag
  */
 Validator.prototype.createField = function(path, value, rules, thisArg) {
 	return new this.Field(this, path, value, rules, thisArg);
@@ -210,7 +213,8 @@ Validator.prototype.onEnd = function() {};
  * Add validation rule descriptor to validator rule set.
  *
  * @param {string} name - Validator name
- * @param {{validate:function,filter:function}} descriptor - Validator descriptor object
+ * @param {Object} descriptor - Validator descriptor object
+ * @todo Add throws tag
  */
 Validator.addRule = function(name, descriptor) {
 	if (typeof descriptor !== 'object') {
@@ -231,8 +235,8 @@ Validator.addRule = function(name, descriptor) {
 /**
  * Add rule alias.
  *
- * @param {string} name
- * @param {string} origin
+ * @param {string} name - Description of the param
+ * @param {string} origin - Description of the param
  * @todo Add returns-tag
  * @todo Add descriptions of the params
  */
@@ -247,8 +251,8 @@ Validator.addAlias = function(name, origin) {
 /**
  * Add extra property to Field.
  *
- * @param name
- * @param value
+ * @param name - Description of the param
+ * @param value - Description of the param
  * @todo Add descriptions of the params
  */
 Validator.fieldProperty = function(name, value) {

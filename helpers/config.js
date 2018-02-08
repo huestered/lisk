@@ -29,7 +29,7 @@ var z_schema = require('./z_schema.js');
 /**
  * Loads config.json file.
  *
- * @param {Object} packageJson
+ * @param {Object} packageJson - Description of the param
  * @returns {Object} configData
  * @todo Add description of the parameter
  */
@@ -123,7 +123,7 @@ function Config(packageJson) {
  * Validates nethash value from constants and sets forging force to false if any.
  *
  * @private
- * @param {Object} configData
+ * @param {Object} configData - Description of the param
  * @todo Add description of the parameter
  */
 function validateForce(configData) {
