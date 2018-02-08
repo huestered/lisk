@@ -22,7 +22,10 @@
 const Promise = require('bluebird');
 const monitor = require('pg-monitor');
 let pgp = require('pg-promise');
-const repos = require('require-all')({ dirname: `${__dirname}/repos`, excludeDirs: /^\.(index|index.js)$/, });
+const repos = require('require-all')({
+	dirname: `${__dirname}/repos`,
+	excludeDirs: /^\.(index|index.js)$/,
+});
 
 // TODO: Had to change it from 'const' into 'let' because of the nasty 'rewire' hacks inside DBSandbox.js.
 // eslint-disable-next-line prefer-const
@@ -57,7 +60,8 @@ pgp = pgp(initOptions);
  * @function connect
  * @param {Object} config - Description of the param
  * @param {function} logger - Description of the param
- * @return {Promise}
+ * @returns {Promise}
+ * @todo Add descriptions for the params and return value
  */
 module.exports.connect = (config, logger) => {
 	try {
@@ -88,6 +92,7 @@ module.exports.connect = (config, logger) => {
  *
  * @function disconnect
  * @param {Object} logger - Description of the param
+ * @todo Add descriptions for the params
  */
 module.exports.disconnect = logger => {
 	logger = logger || console;

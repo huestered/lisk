@@ -35,7 +35,7 @@ class RoundsRepository {
 	/**
 	 * Get round information from mem tables.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	getMemRounds() {
@@ -47,7 +47,7 @@ class RoundsRepository {
 	 * Remove a particular round from database.
 	 *
 	 * @param {string} round - Id of the round
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	flush(round) {
@@ -57,8 +57,8 @@ class RoundsRepository {
 	/**
 	 * Delete all blocks above a particular height.
 	 *
-	 * @param {int} height
-	 * @return {Promise}
+	 * @param {int} height - Description of the param
+	 * @returns {Promise}
 	 * @todo Add descriptions for the params and the return value
 	 */
 	truncateBlocks(height) {
@@ -71,7 +71,7 @@ class RoundsRepository {
 	 *
 	 * @param {boolean} backwards - Backwards flag
 	 * @param {string} outsiders - Comma separated string of ids
-	 * @return {*}
+	 * @returns {*}
 	 * @todo Add description for the return value
 	 */
 	updateMissedBlocks(backwards, outsiders) {
@@ -86,7 +86,7 @@ class RoundsRepository {
 	 * Get votes for a round.
 	 *
 	 * @param {string} round - Id of the round
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	getVotes(round) {
@@ -110,10 +110,10 @@ class RoundsRepository {
 	/**
 	 * Update the blockId attribute for an account.
 	 *
-	 * @param {string} newId
-	 * @param {string} oldId
-	 * @return {Promise}
-	 * @todo Add description for the return value
+	 * @param {string} newId - Description of the param
+	 * @param {string} oldId - Description of the param
+	 * @returns {Promise}
+	 * @todo Add description for the params and return value
 	 */
 	updateBlockId(newId, oldId) {
 		return this.db.none(sql.updateBlockId, [newId, oldId]);
@@ -124,7 +124,7 @@ class RoundsRepository {
 	 *
 	 * @param {string} round - Id of the round
 	 * @param {int} activeDelegates - Number of active delegates
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	summedRound(round, activeDelegates) {
@@ -135,7 +135,7 @@ class RoundsRepository {
 	/**
 	 * Drop the table for round snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	clearRoundSnapshot() {
@@ -145,7 +145,7 @@ class RoundsRepository {
 	/**
 	 * Create table for the round snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	performRoundSnapshot() {
@@ -155,8 +155,9 @@ class RoundsRepository {
 	/**
 	 * Create table for the round snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
+	 * @todo Add @param tag
 	 */
 	getDelegatesSnapshot(limit) {
 		return this.db.query(sql.getDelegatesSnapshot, [limit]);
@@ -165,7 +166,7 @@ class RoundsRepository {
 	/**
 	 * Delete table for votes snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	clearVotesSnapshot() {
@@ -175,7 +176,7 @@ class RoundsRepository {
 	/**
 	 * Take a snapshot of the votes by creating table and populating records from votes.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	performVotesSnapshot() {
@@ -185,7 +186,7 @@ class RoundsRepository {
 	/**
 	 * Update accounts from the round snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	restoreRoundSnapshot() {
@@ -195,7 +196,7 @@ class RoundsRepository {
 	/**
 	 * Update votes for account from a snapshot.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	restoreVotesSnapshot() {
@@ -209,7 +210,7 @@ class RoundsRepository {
 	 * @param {string} blockId - Associated block id
 	 * @param {Number} round - Associated round number
 	 * @param {Number} amount - Amount updated on account
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	insertRoundInformationWithAmount(address, blockId, round, amount) {
@@ -229,7 +230,7 @@ class RoundsRepository {
 	 * @param {Number} round - Associated round number
 	 * @param {string} delegateId - Associated delegate id
 	 * @param {string} mode - Possible values of '+' or '-' represents behaviour of adding or removing delegate
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	insertRoundInformationWithDelegate(

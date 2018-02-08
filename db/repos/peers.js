@@ -22,8 +22,8 @@ const cs = {}; // Reusable ColumnSet objects
  *
  * @class
  * @memberof db.repos
- * @requires db/sql
  * @see Parent: {@link db.repos}
+ * @requires db/sql
  * @param {Database} db - Instance of database object from pg-promise
  * @param {Object} pgp - pg-promise instance to utilize helpers
  * @returns {Object} - An instance of a PeersRepository
@@ -56,7 +56,7 @@ class PeersRepository {
 	/**
 	 * Gets all peers from database.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	list() {
@@ -66,7 +66,7 @@ class PeersRepository {
 	/**
 	 * Clears all peers from database.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	clear() {
@@ -77,7 +77,7 @@ class PeersRepository {
 	 * Inserts a new peer into database.
 	 *
 	 * @param {Array} peers - Array of peer objects to be inserted
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	insert(peers) {

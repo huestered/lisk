@@ -42,7 +42,7 @@ class MigrationsRepository {
 	/**
 	 * Verifies presence of the 'migrations' OID named relation.
 	 *
-	 * @return {Promise<boolean>}
+	 * @returns {Promise<boolean>}
 	 * @todo Add description for the return value
 	 */
 	hasMigrations() {
@@ -56,7 +56,7 @@ class MigrationsRepository {
 	/**
 	 * Gets id of the last migration record, or 0, if none exist.
 	 *
-	 * @return {Promise<number>}
+	 * @returns {Promise<number>}
 	 * @todo Add description for the return value
 	 */
 	getLastId() {
@@ -66,7 +66,7 @@ class MigrationsRepository {
 	/**
 	 * Executes 'migrations/runtime.sql' file, to set peers clock to null and state to 1.
 	 *
-	 * @return {Promise<null>}
+	 * @returns {Promise<null>}
 	 * @todo Add description for the return value
 	 */
 	applyRuntime() {
@@ -78,7 +78,7 @@ class MigrationsRepository {
 	/**
 	 * Executes 'migrations/memoryTables.sql' file, to create and configure all memory tables.
 	 *
-	 * @return {Promise<null>}
+	 * @returns {Promise<null>}
 	 * @todo Add description for the return value
 	 */
 	createMemoryTables() {
@@ -92,8 +92,8 @@ class MigrationsRepository {
 	/**
 	 * Reads 'sql/migrations/updates' folder and returns an array of objects for further processing.
 	 *
-	 * @param {number} lastMigrationId
-	 * @return {Promise<Array<{id, name, path, file}>>}
+	 * @param {number} lastMigrationId - Description of the param
+	 * @returns {Promise}
 	 * @todo Add descriptions for the params and the return value
 	 */
 	readPending(lastMigrationId) {
@@ -131,7 +131,7 @@ class MigrationsRepository {
 	 * Applies a cumulative update: all pending migrations + runtime.
 	 * Each update+insert execute within their own SAVEPOINT, to ensure data integrity on the updates level.
 	 *
-	 * @return {Promise}
+	 * @returns {Promise}
 	 * @todo Add description for the return value
 	 */
 	applyAll() {
